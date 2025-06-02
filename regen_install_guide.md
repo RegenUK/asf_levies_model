@@ -56,6 +56,8 @@ If pip reports missing packages, you can install them individually (e.g., `pip i
 
 ## ⚙️ Step 4: Configure Data Paths (Optional)
 
+You don't need to do this just to get it working - skip this step until you are making custom inputs. 
+
 If you're using local input files, update the file paths in `asf_levies_model/config/base.yaml`. For example:
 
     data_sources:
@@ -67,31 +69,15 @@ Make sure to use double backslashes or forward slashes in Windows paths.
 
 ## 🧪 Step 5: Test the Installation
 
-Create a file like `test_levy.py` and run this example:
+Run the file `regen_setup_test/regen_steup_test.py`
 
-    from asf_levies_model.levies import Levy
+This instantiates the `Levy` class with an electricity rate of 0.1
 
-    levy = Levy(
-        name="demo",
-        short_name="d",
-        electricity_weight=1,
-        gas_weight=0,
-        tax_weight=0,
-        electricity_variable_weight=1,
-        electricity_variable_rate=0.1,
-        revenue=100,
-        electricity_fixed_weight=0,
-        electricity_fixed_rate=0,
-        gas_variable_weight=0,
-        gas_variable_rate=0,
-        gas_fixed_weight=0,
-        gas_fixed_rate=0,
-        general_taxation=0
-    )
+It then uses the `.calculate_levy` method, passing required variables (including a consumption of 3.0)
 
-    print(levy.calculate_levy(electricity_consumption=3.0, gas_consumption=0.0))
+3 x 0.1 = 0.3, so...
 
-Expected output:
+Expected output (if everything has worked):
 
     0.30000000000000004
 
