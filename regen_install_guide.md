@@ -42,7 +42,11 @@ If you get a permission error, run this once:
 
 ## 📦 Step 3: Install Dependencies
 
-Install using the cleaned-up `requirements.txt` file:
+Install `requirements_dev.txt' file:
+    
+    pip install -r requirements_dev.txt
+
+Install using the cleaned-up (Regen specific) `requirements.txt` file:
 
     pip install -r requirements.txt
 
